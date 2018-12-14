@@ -5,19 +5,19 @@
   
 
   
-  <title>等我想一个好点的名字再换</title>
+  <title>Spring boot 接入redis | 等我想一个好点的名字再换</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: First Night 我有一头小毛驴，可是我从来都不骑。">
+  <meta name="description" content="1、使用properties或yml文件配置这种方式最简单，只需要引入spring-boot-starter-data-redis包，并且写好properties配置文件，那么依赖中的RedisAutoConfiguration类就会自动加载配置文件，这种方式提供了两种bean：RedisTemplate和StringRedisTemplate两种 （1）、 pom.xml依赖&amp;lt;depend">
 <meta property="og:type" content="article">
-<meta property="og:title" content="等我想一个好点的名字再换">
+<meta property="og:title" content="Spring boot 接入redis">
 <meta property="og:url" content="http://yoursite.com/2018/12/12/FirstNight/index.html">
 <meta property="og:site_name" content="等我想一个好点的名字再换">
-<meta property="og:description" content="title: First Night 我有一头小毛驴，可是我从来都不骑。">
+<meta property="og:description" content="1、使用properties或yml文件配置这种方式最简单，只需要引入spring-boot-starter-data-redis包，并且写好properties配置文件，那么依赖中的RedisAutoConfiguration类就会自动加载配置文件，这种方式提供了两种bean：RedisTemplate和StringRedisTemplate两种 （1）、 pom.xml依赖&amp;lt;depend">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-12T07:08:24.505Z">
+<meta property="og:updated_time" content="2018-12-14T01:47:30.500Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="等我想一个好点的名字再换">
-<meta name="twitter:description" content="title: First Night 我有一头小毛驴，可是我从来都不骑。">
+<meta name="twitter:title" content="Spring boot 接入redis">
+<meta name="twitter:description" content="1、使用properties或yml文件配置这种方式最简单，只需要引入spring-boot-starter-data-redis包，并且写好properties配置文件，那么依赖中的RedisAutoConfiguration类就会自动加载配置文件，这种方式提供了两种bean：RedisTemplate和StringRedisTemplate两种 （1）、 pom.xml依赖&amp;lt;depend">
   
     <link rel="alternate" href="/atom.xml" title="等我想一个好点的名字再换" type="application/atom+xml">
   
@@ -74,17 +74,42 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spring boot 接入redis
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="title-First-Night"><a href="#title-First-Night" class="headerlink" title=" title: First Night"></a> title: First Night</h2><blockquote>
-<p>我有一头<strong>小毛驴</strong>，可是我从来都不骑。</p>
-</blockquote>
+        <h4 id="1、使用properties或yml文件配置"><a href="#1、使用properties或yml文件配置" class="headerlink" title="1、使用properties或yml文件配置"></a>1、使用properties或yml文件配置</h4><pre><code>这种方式最简单，只需要引入spring-boot-starter-data-redis包，并且写好properties配置文件，那么依赖中的RedisAutoConfiguration类就会自动加载配置文件，这种方式提供了两种bean：RedisTemplate和StringRedisTemplate两种
+</code></pre><h6 id="（1）、-pom-xml依赖"><a href="#（1）、-pom-xml依赖" class="headerlink" title="（1）、 pom.xml依赖"></a>（1）、 pom.xml依赖</h6><pre><code>&lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre><h6 id="（2）、application-properties配置文件"><a href="#（2）、application-properties配置文件" class="headerlink" title="（2）、application.properties配置文件"></a>（2）、application.properties配置文件</h6><pre><code>Spring.redis.host=localhost       //数据库ip
+spring.redis.port=6379     //端口
+#后面的可以不配置使用默认配置即可
+# 连接超时时间 单位 ms（毫秒）
+spring.redis.timeout=3000
 
+# 连接池中的最大空闲连接，默认值也是8。
+spring.redis.pool.max-idle=8
+#连接池中的最小空闲连接，默认值也是0。
+spring.redis.pool.min-idle=0
+# 如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。
+spring.redis.pool.max-active=8
+# 等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException
+spring.redis.pool.max-wait=-1
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/12/FirstNight/" data-id="cjpkx7yd00000q0vzaugrdzeu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/12/FirstNight/" data-id="cjpnnz6iq0001kwvzncfbhayw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -92,6 +117,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/12/14/Framework/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          使用Spring boot集成Freemarker生成word文档
+        
+      </div>
+    </a>
   
   
     <a href="/2018/12/12/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
@@ -133,7 +167,11 @@
       <ul>
         
           <li>
-            <a href="/2018/12/12/FirstNight/">(no title)</a>
+            <a href="/2018/12/14/Framework/">使用Spring boot集成Freemarker生成word文档</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/12/FirstNight/">Spring boot 接入redis</a>
           </li>
         
           <li>

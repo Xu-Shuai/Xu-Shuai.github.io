@@ -5,15 +5,19 @@
   
 
   
-  <title>等我想一个好点的名字再换</title>
+  <title>使用Spring boot集成Freemarker生成word文档 | 等我想一个好点的名字再换</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="等我想一个好点的名字再换">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="FreeMarker介绍   FreeMarker 是一款 模板引擎： 即一种基于模板和要改变的数据， 并用来生成输出文本(HTML网页，电子邮件，配置文件，源代码等)的通用工具。 它不是面向最终用户的，而是一个Java类库，是一款程序员可以嵌入他们所开发产品的组件。模板编写为FreeMarker Template Language (FTL)。 1、Spring boot 引入依赖&amp;lt;dep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Spring boot集成Freemarker生成word文档">
+<meta property="og:url" content="http://yoursite.com/2018/12/14/Framework/index.html">
 <meta property="og:site_name" content="等我想一个好点的名字再换">
+<meta property="og:description" content="FreeMarker介绍   FreeMarker 是一款 模板引擎： 即一种基于模板和要改变的数据， 并用来生成输出文本(HTML网页，电子邮件，配置文件，源代码等)的通用工具。 它不是面向最终用户的，而是一个Java类库，是一款程序员可以嵌入他们所开发产品的组件。模板编写为FreeMarker Template Language (FTL)。 1、Spring boot 引入依赖&amp;lt;dep">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-14T03:42:32.289Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="等我想一个好点的名字再换">
+<meta name="twitter:title" content="使用Spring boot集成Freemarker生成word文档">
+<meta name="twitter:description" content="FreeMarker介绍   FreeMarker 是一款 模板引擎： 即一种基于模板和要改变的数据， 并用来生成输出文本(HTML网页，电子邮件，配置文件，源代码等)的通用工具。 它不是面向最终用户的，而是一个Java类库，是一款程序员可以嵌入他们所开发产品的组件。模板编写为FreeMarker Template Language (FTL)。 1、Spring boot 引入依赖&amp;lt;dep">
   
     <link rel="alternate" href="/atom.xml" title="等我想一个好点的名字再换" type="application/atom+xml">
   
@@ -60,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Framework" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-Framework" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/14/Framework/" class="article-date">
   <time datetime="2018-12-14T02:12:12.661Z" itemprop="datePublished">2018-12-14</time>
@@ -75,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/14/Framework/">使用Spring boot集成Freemarker生成word文档</a>
+    <h1 class="article-title" itemprop="name">
+      使用Spring boot集成Freemarker生成word文档
     </h1>
   
 
@@ -159,111 +161,19 @@ static {
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-FirstNight" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/12/FirstNight/" class="article-date">
-  <time datetime="2018-12-12T07:08:10.513Z" itemprop="datePublished">2018-12-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/12/FirstNight/">Spring boot 接入redis</a>
-    </h1>
+    <a href="/2018/12/12/FirstNight/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Spring boot 接入redis</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1、使用properties或yml文件配置"><a href="#1、使用properties或yml文件配置" class="headerlink" title="1、使用properties或yml文件配置"></a>1、使用properties或yml文件配置</h4><pre><code>这种方式最简单，只需要引入spring-boot-starter-data-redis包，并且写好properties配置文件，那么依赖中的RedisAutoConfiguration类就会自动加载配置文件，这种方式提供了两种bean：RedisTemplate和StringRedisTemplate两种
-</code></pre><h6 id="（1）、-pom-xml依赖"><a href="#（1）、-pom-xml依赖" class="headerlink" title="（1）、 pom.xml依赖"></a>（1）、 pom.xml依赖</h6><pre><code>&lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre><h6 id="（2）、application-properties配置文件"><a href="#（2）、application-properties配置文件" class="headerlink" title="（2）、application.properties配置文件"></a>（2）、application.properties配置文件</h6><pre><code>Spring.redis.host=localhost       //数据库ip
-spring.redis.port=6379     //端口
-#后面的可以不配置使用默认配置即可
-# 连接超时时间 单位 ms（毫秒）
-spring.redis.timeout=3000
-
-# 连接池中的最大空闲连接，默认值也是8。
-spring.redis.pool.max-idle=8
-#连接池中的最小空闲连接，默认值也是0。
-spring.redis.pool.min-idle=0
-# 如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。
-spring.redis.pool.max-active=8
-# 等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException
-spring.redis.pool.max-wait=-1
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/12/FirstNight/" data-id="cjpnnz6iq0001kwvzncfbhayw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/12/hello-world/" class="article-date">
-  <time datetime="2018-12-12T06:33:56.902Z" itemprop="datePublished">2018-12-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/12/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/12/hello-world/" data-id="cjpnnz6jf0002kwvzwazu9klx" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
