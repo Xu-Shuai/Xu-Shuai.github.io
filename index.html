@@ -399,34 +399,28 @@
       
         
           
-            <pre><code>此文章是利用github搭建hexo博客的教程
-本文转载自https://mmpmmmp.github.io/2018/05/20/mypage/hexo-tutorial/
-</code></pre><h6 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h6><pre><code>下载地址 https://git-scm.com/downloads
-
-cmd git version 查看git是否安装
+            <p>   此文章是利用github搭建hexo博客的教程<br>   本文转载自<a href="https://mmpmmmp.github.io/2018/05/20/mypage/hexo-tutorial/" target="_blank" rel="noopener">https://mmpmmmp.github.io/2018/05/20/mypage/hexo-tutorial/</a></p>
+<h6 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h6><p>   下载地址 <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
+<pre><code>cmd git version 查看git是否安装
 没有安装，下载exe文件直接next
-</code></pre><h5 id="2-安装Node-Js"><a href="#2-安装Node-Js" class="headerlink" title="2.安装Node.Js"></a>2.安装Node.Js</h5><pre><code>下载地址 https://nodejs.org/en/download/
-
-cmd node -v 查看版本
+</code></pre><h6 id="2-安装Node-Js"><a href="#2-安装Node-Js" class="headerlink" title="2.安装Node.Js"></a>2.安装Node.Js</h6><p>   下载地址 <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a></p>
+<pre><code>cmd node -v 查看版本
 如不存在，下载msi文件，打开安装，一路next，记得在Custom Setup选择add path自动配置环境
 现在版本的Node一般都集成了npm可以cmd npm -v 一下看有没有，没有一定要装，npm是神器
-</code></pre><h5 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h5><pre><code>选择一个文件夹，也可以新建
+</code></pre><h6 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h6><pre><code>选择一个文件夹，也可以新建
 管理员运行命令行进入刚刚的文件夹，也可以右键git bash（一般安装git hub自带）输入：npm     i -g hexo 安装hexo
 cmd hexo -v 检查版本
 新建项目cmd hexo init 项目名
 到新建项目根目录cmd npm i 安装包
 管理员cmd进入项目跟目录执行 hexo server 浏览器打开 &gt; http://localhost:4000
-</code></pre><h5 id="4-发布到github"><a href="#4-发布到github" class="headerlink" title="4.发布到github"></a>4.发布到github</h5><pre><code>新建仓库仓库名就是博客访问路径
-打开项目，修改_config.yml
-
-deploy:
+</code></pre><h6 id="4-发布到github"><a href="#4-发布到github" class="headerlink" title="4.发布到github"></a>4.发布到github</h6><p>   新建仓库仓库名就是博客访问路径<br>   打开项目，修改_config.yml</p>
+<pre><code>deploy:
     type: git
     repo: https://github.com/YourgithubName/YourgithubName.github.io.git
     branch: master
 管理员cmd进入项目跟目录先安装 npm install hexo-deployer-git –save 再执行 hexo generate 最后执行 hexo deploy
+</code></pre><p>   在浏览器中输入 &gt; [<a href="http://yourgithubname.github.io]http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io]http://yourgithubname.github.io</a> 就可以看到个人博客</p>
 
-在浏览器中输入 &gt; http://yourgithubname.github.io 就可以看到个人博客
-</code></pre>
           
         
       
