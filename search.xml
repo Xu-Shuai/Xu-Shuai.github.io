@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[hexo搭建博客]]></title>
+    <url>%2F2018%2F12%2F19%2FHexoBlogC%2F</url>
+    <content type="text"><![CDATA[此文章是利用github搭建hexo博客的教程 本文转载自https://mmpmmmp.github.io/2018/05/20/mypage/hexo-tutorial/ 1.安装git 下载地址 https://git-scm.com/downloads cmd git version 查看git是否安装 没有安装，下载exe文件直接next 2.安装Node.Js 下载地址 https://nodejs.org/en/download/ cmd node -v 查看版本 如不存在，下载msi文件，打开安装，一路next，记得在Custom Setup选择add path自动配置环境 现在版本的Node一般都集成了npm可以cmd npm -v 一下看有没有，没有一定要装，npm是神器 3.安装hexo选择一个文件夹，也可以新建 管理员运行命令行进入刚刚的文件夹，也可以右键git bash（一般安装git hub自带）输入：npm i -g hexo 安装hexo cmd hexo -v 检查版本 新建项目cmd hexo init 项目名 到新建项目根目录cmd npm i 安装包 管理员cmd进入项目跟目录执行 hexo server 浏览器打开 &gt; http://localhost:4000 4.发布到github 新建仓库仓库名就是博客访问路径 打开项目，修改_config.yml deploy: type: git repo: https://github.com/YourgithubName/YourgithubName.github.io.git branch: master 管理员cmd进入项目跟目录先安装 npm install hexo-deployer-git –save 再执行 hexo generate 最后执行 hexo deploy 在浏览器中输入 &gt; [http://yourgithubname.github.io]http://yourgithubname.github.io 就可以看到个人博客]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用Spring boot集成Freemarker生成word文档]]></title>
+    <url>%2F2018%2F12%2F14%2FFramework%2F</url>
+    <content type="text"><![CDATA[FreeMarker介绍 FreeMarker 是一款 模板引擎： 即一种基于模板和要改变的数据， 并用来生成输出文本(HTML网页，电子邮件，配置文件，源代码等)的通用工具。 它不是面向最终用户的，而是一个Java类库，是一款程序员可以嵌入他们所开发产品的组件。模板编写为FreeMarker Template Language (FTL)。 1、Spring boot 引入依赖&lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-freemarker&lt;/artifactId&gt; &lt;/dependency&gt; 2、模板准备1、将word模板文档另存为xml文件；（这种方式最简单） 2、将xml文件使用编辑器打开（如idea），并将其中要作为输入的部分使用 ${} 占位符填充 3、将xml文件另存为ftl文件，要注意另存为后出现的类容错位。 3、代码准备//模板文件所在的文件夹 private static final String templateFolder = &quot;F:/project/idea/tempplate-demo/src/main/resources/static/&quot;; static { Configuration configuration = new Configuration(); configuration.setDefaultEncoding(&quot;utf-8&quot;); try { configuration.setDirectoryForTemplateLoading(new File(templateFolder)); } catch (IOException e) { e.printStackTrace(); } } 生成并存入response /** * * @param request * @param response * @param map 数据集 * @param title 标题 * @param ftlFile 模板文件 * @param fileName 生成文件名称 * @throws IOException */ public static void exportMillCertificateWord(HttpServletRequest request, HttpServletResponse response, Map map, String title, String ftlFile,String fileName) throws IOException { Template freemarkerTemplate = configuration.getTemplate(ftlFile); File file = null; InputStream fin = null; ServletOutputStream out = null; try { //生成word file = new File(&quot;test.doc&quot;); // 这个地方不能使用FileWriter因为需要指定编码类型否则生成的Word文档会因为有无法识别的编码而无法打开 Writer w = new OutputStreamWriter(new FileOutputStream(file), &quot;UTF-8&quot;); t.process(dataMap, w); w.close(); fin = new FileInputStream(file); response.setCharacterEncoding(&quot;UTF-8&quot;); response.setContentType(&quot;application/msword&quot;); // 设置浏览器以下载的方式处理该文件名 response.setHeader(&quot;Content-Disposition&quot;, &quot;attachment;filename=&quot; .concat(String.valueOf(URLEncoder.encode(fileName, &quot;UTF-8&quot;)))); out = response.getOutputStream(); byte[] buffer = new byte[512]; // 缓冲区 int bytesToRead = -1; // 通过循环将读入的Word文件的内容输出到浏览器中 while ((bytesToRead = fin.read(buffer)) != -1) { out.write(buffer, 0, bytesToRead); } }catch (Exception ex) { ex.printStackTrace(); throw new RuntimeException(ex); } }]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Spring boot 接入redis]]></title>
+    <url>%2F2018%2F12%2F12%2FFirstNight%2F</url>
+    <content type="text"><![CDATA[1、使用properties或yml文件配置这种方式最简单，只需要引入spring-boot-starter-data-redis包，并且写好properties配置文件，那么依赖中的RedisAutoConfiguration类就会自动加载配置文件，这种方式提供了两种bean：RedisTemplate和StringRedisTemplate两种 （1）、 pom.xml依赖&lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt; &lt;/dependency&gt; （2）、application.properties配置文件Spring.redis.host=localhost //数据库ip spring.redis.port=6379 //端口 #后面的可以不配置使用默认配置即可 # 连接超时时间 单位 ms（毫秒） spring.redis.timeout=3000 # 连接池中的最大空闲连接，默认值也是8。 spring.redis.pool.max-idle=8 #连接池中的最小空闲连接，默认值也是0。 spring.redis.pool.min-idle=0 # 如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。 spring.redis.pool.max-active=8 # 等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException spring.redis.pool.max-wait=-1]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Spring</category>
+        <category>Spring Boot</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring Boot</tag>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F12%2F12%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
